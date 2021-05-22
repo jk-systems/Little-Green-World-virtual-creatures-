@@ -57,20 +57,21 @@ class Agent {
       this.pos.y = 0;
     }
   }
-  //seek() {
-  //  let target = p5.Vector(mouseX, mouseY);
-  //  let desired = target.sub(this.pos);
-  //  console.log(desired);
-  //  let d = desired.mag();
-  //  let speed = this.maxspeed;
-  //  if (d < 100) {
-  //    speed = map(d, 0, 100, 0, this.maxspeed);
-  //  }
-  //  desired.setMag(speed);
-  //  let steer = p5.Vector.sub(desired, this.vel);
-  //  steer.limit(this.maxforce);
-  //  this.acc.add(steer);
-  //}
+  seek() {
+    //comments
+   let target = p5.Vector(mouseX, mouseY);
+   let desired = target.sub(this.pos);
+   console.log(desired);
+   let d = desired.mag();
+   let speed = this.maxspeed;
+   if (d < 100) {
+     speed = map(d, 0, 100, 0, this.maxspeed);
+   }
+   desired.setMag(speed);
+   let steer = p5.Vector.sub(desired, this.vel);
+   steer.limit(this.maxforce);
+   this.acc.add(steer);
+  }
   feed(foods) {
     //cheek collision
     for (let food of foods) {
